@@ -12,7 +12,15 @@
     "require-dev": {
         "squizlabs/php_codesniffer": "@stable"
     },
+    "scripts": {
+        "pre-autoload-dump": [
+            "MoneyFormatPolyfillInstaller::preAutoloadDump"
+        ]
+    },
     "autoload": {
+        "classmap": [
+            "scripts"
+        ],
         "files": [
             "src/money_format.php"
         ]

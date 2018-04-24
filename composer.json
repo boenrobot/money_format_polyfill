@@ -8,19 +8,22 @@
             "email": "boen.robot@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+    },
     "require-dev": {
         "squizlabs/php_codesniffer": "@stable"
     },
-    "scripts": {
-        "pre-autoload-dump": [
-            "MoneyFormatPolyfillInstaller::preAutoloadDump"
-        ]
+    "suggest": {
+        "boenrobot/composer-install-library-of-functions": "To remove the polyfill from the autoloader if not needed."
+    },
+    "extra": {
+        "functionmap": {
+            "autoload": {
+                "money_format": "src/money_format.php"
+            }
+        }
     },
     "autoload": {
-        "classmap": [
-            "scripts"
-        ],
         "files": [
             "src/money_format.php"
         ]

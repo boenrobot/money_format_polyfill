@@ -34,8 +34,8 @@ if (!function_exists('money_format')) {
             );
             $width      = trim($fmatch[2]) ? (int)$fmatch[2] : 0;
             $left       = trim($fmatch[3]) ? (int)$fmatch[3] : 0;
-            $right      = trim($fmatch[4])
-                ? (int)$fmatch[4] : $locale['int_frac_digits'];
+            $right      = trim($fmatch[4]) === ''
+                ? $locale['int_frac_digits'] : (int)$fmatch[4];
             $conversion = $fmatch[5];
 
             $positive = true;
@@ -62,7 +62,7 @@ if (!function_exists('money_format')) {
             case $locale["{$letter}_sign_posn"] == 4 && $flags['usesignal'] == '+':
                 $csuffix = $signal;
                 break;
-            case $flags['usesignal'] == '(':
+            case $flags['usesignal'] == '(' && $letter === 'n':
             case $locale["{$letter}_sign_posn"] == 0:
                 $prefix = '(';
                 $suffix = ')';
